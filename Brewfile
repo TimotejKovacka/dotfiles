@@ -2,24 +2,25 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
-brew 'cloudflared'
-brew 'imagemagick'
-brew 'postgresql@14'
-brew 'redis'
-brew 'spaceman-diff'
-brew 'stripe/stripe-cli/stripe'
-brew 'stripe/stripe-mock/stripe-mock'
-brew 'wget'
-
-cask '1password'
-cask 'diffusionbee'
-cask 'handbrake'
-cask 'messenger'
-cask 'notion-calendar'
-cask 'plex'
-cask 'raycast'
-# cask 'warp' Consider for the future
-cask 'whatsapp'
+# dev
 cask 'visual-studio-code'
+brew 'spaceman-diff'
+# cask 'warp' Consider for the future
+
+# utility
+brew 'wget'
 cask 'vlc'
+brew 'imagemagick'
+
+# social
 cask 'zoom'
+cask 'whatsapp'
+cask 'messenger'
+
+# multi-purpose
+cask 'raycast'
+cask '1password'
+cask 'notion-calendar'
+
+# Maybe in the future?
+# cask 'diffusionbee'
