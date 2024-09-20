@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+
+# Check if $ZSH is set and the directory exists
+if [[ -z "$ZSH" || ! -d "$ZSH" ]]; then
+    echo "Error: \$ZSH is not set or the directory doesn't exist"
+    return 1
+fi
+
+# Option for verbose output
+VERBOSE=${VERBOSE:-false}
+
+# Function to source files
+source_files() {
+    local file
+    for file in $@; do
+        if [[ "$VERBOSE" == true ]]; then
+            echo "Sourcing: $file"
+        fi
+        source "$file"
+    done
+}
+
+# All of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# Source path files
+source_files ${(M)config_files:#*/path.zsh}
+
+# Source everything but path files
+source_files ${config_files:#*/path.zsh}
+
+# Optionally compile the sourced files for faster loading
+if [[ "$ZSH_COMPILE_SCRIPTS" == true ]]; then
+    for file in "${config_files[@]}"; do
+        zcompile "$file"
+    done
+fi
+
+unset config_files
+unset -f source_files
