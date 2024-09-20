@@ -26,6 +26,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
+# Set the Finder pref for showing hidden files
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
 # Run the screensaver if we're in the bottom-left hot corner.
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
