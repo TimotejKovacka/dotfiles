@@ -5,6 +5,7 @@ tap 'homebrew/bundle'
 # dev
 cask 'visual-studio-code'
 brew 'spaceman-diff'
+brew 'k9s'
 # cask 'warp' Consider for the future
 
 # utility
