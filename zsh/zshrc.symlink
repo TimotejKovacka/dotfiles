@@ -34,9 +34,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes.
-export VERBOSE=true
+# export VERBOSE=true
 export ZSH_COMPILE_SCRIPTS=true
 source $ZSH_CUSTOM/bin/zsh-config-loader
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $ZSH_CUSTOM/zsh/.p10k.zsh.
+[[ ! -f $ZSH_CUSTOM/zsh/.p10k.zsh ]] || source $ZSH_CUSTOM/zsh/.p10k.zsh
