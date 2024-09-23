@@ -1,3 +1,6 @@
+# You can modify these to debug the script
+VERBOSE=false
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -34,9 +37,30 @@ source $ZSH/oh-my-zsh.sh
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes.
-# export VERBOSE=true
-export ZSH_COMPILE_SCRIPTS=true
-source $ZSH_CUSTOM/bin/zsh-config-loader
+
+if [[ -z "$ZSH_CUSTOM" || ! -d "$ZSH_CUSTOM" ]]; then
+    echo "Error: \$ZSH_CUSTOM is not set or the directory doesn't exist"
+    return 1
+fi
+
+source_files() {
+    local file
+    for file in $@; do
+        if [[ "$VERBOSE" == true ]]; then
+            echo "Sourcing: $file"
+        fi
+        source "$file"
+    done
+}
+
+typeset -U config_files
+config_files=($ZSH_CUSTOM/**/*.zsh)
+
+source_files ${(M)config_files:#*/path.zsh}
+source_files ${config_files:#*/path.zsh}
+
+unset config_files
+unset -f source_files
 
 # To customize prompt, run `p10k configure` or edit $ZSH_CUSTOM/zsh/.p10k.zsh.
 [[ ! -f $ZSH_CUSTOM/zsh/.p10k.zsh ]] || source $ZSH_CUSTOM/zsh/.p10k.zsh
