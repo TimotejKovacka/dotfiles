@@ -2,7 +2,7 @@
 
 # Check if $ZSH_CUSTOM is set and the directory exists
 if [[ -z "$ZSH_CUSTOM" || ! -d "$ZSH_CUSTOM" ]]; then
-    echo "Error: \$ZSH is not set or the directory doesn't exist"
+    echo "Error: \$ZSH_CUSTOM is not set or the directory doesn't exist"
     return 1
 fi
 

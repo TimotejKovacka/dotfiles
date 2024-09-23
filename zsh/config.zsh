@@ -1,3 +1,5 @@
-fpath=($ZSH/functions $fpath)
+fpath=($ZSH_CUSTOM/functions $fpath)
 
-autoload -U $ZSH/functions/*(:t)
+if [[ -d "$ZSH_CUSTOM/functions" ]]; then
+    autoload -U $ZSH_CUSTOM/functions/*(:t)
+fi
