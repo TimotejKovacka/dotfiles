@@ -31,6 +31,17 @@ git clone --recursive https://github.com/TimotejKovacka/dotfiles.git
 
 2. Run bootstrap
 
+The bootstrap script will setup git & symlink all of our symlink files included in this repo
+
 ```sh
 script/bootstrap
 ```
+
+### VS Code
+
+If you want the integrated terminal to share the same font that `powerlevel10k` uses please do the following:
+
+1. Open Settings in Visual Studio Code.
+    - On PC: press `Ctrl + ,` or click `File` → `Preferences` → `Settings`
+    - On Mac: press `⌘ + ,` or click `Code` → `Preferences` → `Settings`
+2. Enter `terminal.integrated.fontFamily` in the search box at the top of Settings tab and set the value below to `MesloLGS NF`.
