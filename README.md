@@ -20,7 +20,7 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
   - [MesloLGS NF Regular.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
   - [MesloLGS NF Bold.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf)
   - [MesloLGS NF Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf)
-  - [MesloLGS NF Bold Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
+  - [MesloLGS NF Bold Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)\
 
 > [!IMPORTANT]  
 > If you're using WSL (Windows Subsystem for Linux), these fonts need to be installed on your host Windows machine, not inside the WSL environment.
@@ -30,7 +30,7 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 1. Clone the repository with the --recursive flag to pull in all submodules:
 
 ```sh
-git clone --recursive https://github.com/TimotejKovacka/dotfiles.git
+git clone https://github.com/TimotejKovacka/dotfiles.git
 ```
 
 2. Run the bootstrap script to set up Git and symlink all the dotfiles:
@@ -38,6 +38,16 @@ git clone --recursive https://github.com/TimotejKovacka/dotfiles.git
 ```sh
 script/bootstrap
 ```
+
+3. Next you will need to install the `powerlevel10k` as follows:
+
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+This should install the `powerlevel10k` in untracked directory `themes/powerlevel10k` inside this cloned repo.
+
+4. Restart terminal session or source `.zshrc`
 
 ### Using Custom Fonts
 
