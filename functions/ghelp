@@ -1,0 +1,15 @@
+ghelp() {
+    local aliases_file="$ZSH_CUSTOM/git/aliases.zsh"
+    
+    if [[ ! -f "$aliases_file" ]]; then
+        echo "Error: $aliases_file not found."
+        return 1
+    fi
+
+    echo "\033[0;32m" # Set text color to green
+    sed -n 's/^alias \([^=]*\)=\(.*\)/\1\t\2/p' "$aliases_file" | \
+    while IFS=$'\t' read -r name command; do
+        printf "%-15s %s\n" "$name" "${command//\'/}"
+    done
+    echo "\033[0m" # Reset text color
+}
